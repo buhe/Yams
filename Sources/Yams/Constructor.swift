@@ -367,7 +367,11 @@ extension String: ScalarConstructible {
     ///
     /// - returns: An instance of `String`, if one was successfully extracted from the scalar.
     public static func construct(from scalar: Node.Scalar) -> String? {
-        return scalar.string
+        if scalar.tag.name.rawValue.hasPrefix("!") {
+            return "\(scalar.tag.name.rawValue) \(scalar.string)"
+        } else {
+            return scalar.string
+        }
     }
 
     /// Construct an instance of `String`, if possible, from the specified `Node`.
