@@ -2,11 +2,81 @@
 
 ##### Breaking
 
+* Change how empty strings are decoded into nullable properties.
+  `key: ""` previously decoded into
+  `struct Value: Codable { let key: String? }` as `Value(key: nil)`
+  whereas after this change it decodes as `Value(key: "")`.
+  This could be a breaking change if you were relying on the previous
+  semantics.  
+  [Liam Nichols](https://github.com/liamnichols)
+  [#301](https://github.com/jpsim/Yams/issues/301)
+
+##### Enhancements
+
+* None.
+
+##### Bug Fixes
+
+* None.
+
+## 5.0.6
+
+##### Breaking
+
+* None.
+
+##### Enhancements
+
+* Allow decoding from an existing Node.  
+  [Rob Napier](https://github.com/rnapier)
+
+##### Bug Fixes
+
+* Empty dictionaries can be now represented, regardless of its key or element
+  type information.  
+  [JP Simard](https://github.com/jpsim)
+  [#393](https://github.com/jpsim/Yams/issues/393)
+
+## 5.0.5
+
+##### Breaking
+
 * None.
 
 ##### Enhancements
 
 * None.
+
+##### Bug Fixes
+
+* Fix using Yams from bazel without bzlmod.  
+  [Keith Smiley](https://github.com/keith)
+
+## 5.0.4
+
+##### Breaking
+
+* None.
+
+##### Enhancements
+
+* Statically link `CYaml` when building with SwiftPM.  
+  [Saleem Abdulrasool](https://github.com/compnerd)
+
+##### Bug Fixes
+
+* None.
+
+## 5.0.3
+
+##### Breaking
+
+* None.
+
+##### Enhancements
+
+* Added support for bzlmod.  
+  [Keith Smiley](https://github.com/keith)
 
 ##### Bug Fixes
 
